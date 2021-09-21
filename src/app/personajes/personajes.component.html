@@ -1,0 +1,44 @@
+<h1>
+  personajes 
+</h1>
+<h2>Si no conoce personaje indique letras y se mostraran todos los personajes coincidentes</h2>
+<h3>Ejemplo : escriba sky y clique sobre filtrar, aparecerán Luke, Anakin y Shmi SKYlwalker</h3>
+<input type="text" [(ngModel)]="name">
+<button class="btn btn-primary" (click)="listar()">Filtar personajes</button>
+
+<div>
+  
+<div *ngIf="datos2">
+   <div *ngFor='let results of datos2.results'>
+       {{ results.name }}
+       {{ results.films }}
+       
+      
+   </div>
+   
+  </div>
+  <div>
+   <ul class="list-group">
+    <li *ngFor="let results of datos3"  class="list-group-item">{{datos3}}</li>  
+ 
+  <li *ngFor="let results of datos4" class="list-group-item">{{datos4}} </li>
+
+  <li *ngFor="let results of datos5"class="list-group-item">{{datos5}} </li>
+
+  <li *ngFor="let results of datos6"class="list-group-item">{{datos6}} </li>
+</ul> 
+</div>
+
+  <div *ngIf="datos">
+    <ul class="list-group">
+    <li *ngFor='let results of datos.results' class="list-group-item">
+        {{ results.name }}
+       <!-- {{ results.height }}-->
+        
+<button class="btn btn-primary" (click)="listar2([ results.films ])">Peliculas en las que aparece</button>
+
+    </li>
+  </ul>
+   </div>
+   
+<!--<pre>{{datos|json}}</pre>-->
